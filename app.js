@@ -5,8 +5,10 @@ let btns = ["yellow", "red", "green", "blue"]
 
 let started = false;
 let level = 0;
+let highestScore = 0;
 
 let h2 = document.querySelector('h2')
+let h3 = document.querySelector('h3')
 
 
 
@@ -36,9 +38,11 @@ function userFlash(btn){
 function levelUp(){
     userSeq=[]
     level++
+    highestScore = Math.max(highestScore, level);
 
 
     h2.innerText = `Level ${level}` ;
+    h3.innerHTML = `Your Highest Score: <b>${highestScore}</b>`
 
     let randIdx = Math.floor(Math.random()*4);
     let randColor = btns[randIdx];
